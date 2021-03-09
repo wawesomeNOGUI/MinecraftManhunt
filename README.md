@@ -9,9 +9,10 @@ This plugin is modeled after Dream's Manhunt Plugin and includes:
 - Giving players a compass on server join or respawn
 
 # How To Use
-Download the Manhunt.jar from (here)[https://github.com/wawesomeNOGUI/MinecraftManhunt/releases/download/1.0/Manhunt.jar]. 
+Download the Manhunt.jar from [here](https://github.com/wawesomeNOGUI/MinecraftManhunt/releases/download/1.0/Manhunt.jar). 
 
 (Or look in the github release to the right)
+
 Next place the Manhunt.jar in the plugins folder of a Spigot-like server (Spigot, Paper, etc).
 Finally run the server and have all players join, then type in: 
 - **/hunt playerName**
