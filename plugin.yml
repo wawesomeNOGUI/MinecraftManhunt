@@ -1,0 +1,10 @@
+name: Manhunt
+version: 1.0
+api-version: 1.16
+author: wawesome
+main: Main
+description: A Minecraft Manhunt Plugin
+
+commands:
+  hunt:
+  
