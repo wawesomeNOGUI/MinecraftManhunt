@@ -21,12 +21,17 @@ public class PortalCheck implements Listener{
 		if(event.getEntity() instanceof Player){
 			Player p = (Player) event.getEntity();
 			
-			if(p.getWorld().getEnvironment() == World.Environment.NORMAL){  //created portal in the overworld
-				CompassTrack.WhereToTrack = p.getLocation();
-				Bukkit.broadcastMessage(ChatColor.RED + "Now Tracking A Portal");
-			}else{	
-				Bukkit.broadcastMessage(p.getName() + " has entered the " + p.getWorld());
+			//If the player who made the portal is the speedrunner being hunted
+			if(p.getName() == CompassTrack.WhoToTrack.getName()){
+				if(p.getWorld().getEnvironment() == World.Environment.NORMAL){  //created portal in the overworld
+					CompassTrack.WhereToTrack = p.getLocation();
+					//Bukkit.broadcastMessage(ChatColor.RED + "Now Tracking A Portal");
+				}else if(p.getWorld().getEnvironment() == World.Environment.NETHER){
+					CompassTrack.WhereToTrackNether = p.getLocation();
+					//Bukkit.broadcastMessage(p.getName() + " has entered the " + p.getWorld());
+				}
 			}
+			
 			
 		}
 	}

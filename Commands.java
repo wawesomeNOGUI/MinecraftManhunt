@@ -41,6 +41,7 @@ public class Commands implements CommandExecutor {
 				
 				//Also Reset Portal Tracking coords
 				CompassTrack.WhereToTrack = null;
+				CompassTrack.WhereToTrackNether = null;
 				
 				return true;
 			}
