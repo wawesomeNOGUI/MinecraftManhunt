@@ -19,6 +19,6 @@ Finally run the server and have all players join, then type in:
 
 Replace "playerName" with the name of one of the online players like this: **/hunt wawesome**
 
-The hunter's just have to right click their compass to track the runner's most recent location, or if the runner is not in the same dimension, the compass will track the runner's most recent portal they made.
+The hunter's just have to hold their compass in their main hand and right click to track the runner's most recent location, or if the runner is not in the same dimension, the compass will track the runner's most recent portal they made.
 
 Have Fun!
