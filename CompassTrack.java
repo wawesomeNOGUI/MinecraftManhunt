@@ -79,7 +79,7 @@ public class CompassTrack implements Listener{
 	    				if(previousLodestone.get(player.getName()) != null){
 	    					//Delete Previous Lodestone
 		    				Block b = previousLodestone.get(player.getName()).getBlock();
-		    			    b.setType(Material.AIR);
+		    			    b.setType(Material.BEDROCK);
 	    				}		    				
 	    			    
 	    			    //Then set new Lodestone
@@ -103,7 +103,7 @@ public class CompassTrack implements Listener{
 	    				if(previousLodestone.get(player.getName()) != null){
 	    					//Delete Previous Lodestone
 		    				Block b = previousLodestone.get(player.getName()).getBlock();
-		    			    b.setType(Material.AIR);
+		    			    b.setType(Material.BEDROCK);
 	    				}		    				
 	    			    
 	    			    //Then set new Lodestone
