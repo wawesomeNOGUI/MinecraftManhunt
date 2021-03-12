@@ -3,9 +3,8 @@ import org.bukkit.World;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.player.PlayerPortalEvent;
 import org.bukkit.event.world.PortalCreateEvent;
-
-import net.md_5.bungee.api.ChatColor;
 
 
 public class PortalCheck implements Listener{
@@ -16,23 +15,24 @@ public class PortalCheck implements Listener{
 		Bukkit.getPluginManager().registerEvents(this, plugin);
 	}
 	
+	//We'll check for PlayerPortalEvent because if a player leaves or enters the nether that'll work better because 
+	//PortalCreateEvent might not work if player isn't in nether when the game generates the portal
 	@EventHandler
-	public void onPortalCreate(PortalCreateEvent event){
-		if(event.getEntity() instanceof Player){
-			Player p = (Player) event.getEntity();
+	public void onPortalEntry(PlayerPortalEvent event){   
+
+			Player p = (Player) event.getPlayer();
 			
 			//If the player who made the portal is the speedrunner being hunted
 			if(p.getName() == CompassTrack.WhoToTrack.getName()){
 				if(p.getWorld().getEnvironment() == World.Environment.NORMAL){  //created portal in the overworld
 					CompassTrack.WhereToTrack = p.getLocation();
 					//Bukkit.broadcastMessage(ChatColor.RED + "Now Tracking A Portal");
-				}else if(p.getWorld().getEnvironment() == World.Environment.NETHER){
+				}else if(p.getWorld().getEnvironment() == World.Environment.NETHER){  //created portal in the overworld
 					CompassTrack.WhereToTrackNether = p.getLocation();
-					//Bukkit.broadcastMessage(p.getName() + " has entered the " + p.getWorld());
+					//Bukkit.broadcastMessage(ChatColor.RED + "Now Tracking A Portal");
 				}
 			}
 			
-			
-		}
 	}
+	
 }
