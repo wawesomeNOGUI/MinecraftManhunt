@@ -19,13 +19,15 @@ private Main plugin;
 	public void onJoin(PlayerJoinEvent event){
 		Player p = event.getPlayer();
 		//Give them a compass in inventory slot 0
-		p.getInventory().setItem(0, new ItemStack(Material.COMPASS, 1));
+		//p.getInventory().setItem(0, new ItemStack(Material.COMPASS, 1));
+		p.getInventory().addItem(new ItemStack(Material.COMPASS, 1));
 	}
 	
 	@EventHandler
 	public void onRespawn(PlayerRespawnEvent event){
 		Player p = event.getPlayer();
 		//Give them a compass in inventory slot 0
-		p.getInventory().setItem(0, new ItemStack(Material.COMPASS, 1));
+		//p.getInventory().setItem(0, new ItemStack(Material.COMPASS, 1));
+		p.getInventory().addItem(new ItemStack(Material.COMPASS, 1));
 	}
 }
