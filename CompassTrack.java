@@ -55,7 +55,8 @@ public class CompassTrack implements Listener{
     					CompassMeta meta = (CompassMeta) player.getInventory().getItemInMainHand().getItemMeta();
     					if(meta.hasLodestone()){
     						//Give player fresh compass without lodestone
-    						player.getInventory().setItem(0, new ItemStack(Material.COMPASS, 1));
+    						//player.getInventory().setItem(0, new ItemStack(Material.COMPASS, 1));
+    						player.getInventory().setItemInMainHand(new ItemStack(Material.COMPASS, 1));
     					}
  	    			    
     					player.setCompassTarget(WhoToTrack.getLocation()); 
@@ -64,7 +65,8 @@ public class CompassTrack implements Listener{
     					CompassMeta meta = (CompassMeta) player.getInventory().getItemInMainHand().getItemMeta();
     					if(meta.hasLodestone()){
     						//Give player fresh compass without lodestone
-    						player.getInventory().setItem(0, new ItemStack(Material.COMPASS, 1));
+    						//player.getInventory().setItem(0, new ItemStack(Material.COMPASS, 1));
+    						player.getInventory().setItemInMainHand(new ItemStack(Material.COMPASS, 1));
     					}
  	    			    
     					player.setCompassTarget(WhereToTrack); 
