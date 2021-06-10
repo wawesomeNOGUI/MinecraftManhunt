@@ -8,6 +8,7 @@ public class Main extends JavaPlugin implements Listener{
 		new CompassTrack(this);
 		new PortalCheck(this);
 		new PlayerJoinOrRespawn(this);
+		//new CompassDropNoNoBad(this);
 		new Commands(this);
 	}
 	

@@ -6,6 +6,7 @@ import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.World;
 import org.bukkit.block.Block;
+import org.bukkit.enchantments.Enchantment;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -14,6 +15,7 @@ import org.bukkit.event.player.PlayerInteractEvent;
 import org.bukkit.inventory.EquipmentSlot;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.CompassMeta;
+import org.bukkit.inventory.meta.ItemMeta;
 
 import net.md_5.bungee.api.ChatColor;
 
@@ -56,7 +58,11 @@ public class CompassTrack implements Listener{
     					if(meta.hasLodestone()){
     						//Give player fresh compass without lodestone
     						//player.getInventory().setItem(0, new ItemStack(Material.COMPASS, 1));
-    						player.getInventory().setItemInMainHand(new ItemStack(Material.COMPASS, 1));
+    						ItemStack item = new ItemStack(Material.COMPASS, 1);
+    						ItemMeta newMeta = item.getItemMeta();
+    						newMeta.addEnchant(Enchantment.VANISHING_CURSE, 0, true);  //so player doesn't drop compass on death
+    						item.setItemMeta(newMeta);
+    						player.getInventory().setItemInMainHand(item);
     					}
  	    			    
     					player.setCompassTarget(WhoToTrack.getLocation()); 
@@ -66,7 +72,11 @@ public class CompassTrack implements Listener{
     					if(meta.hasLodestone()){
     						//Give player fresh compass without lodestone
     						//player.getInventory().setItem(0, new ItemStack(Material.COMPASS, 1));
-    						player.getInventory().setItemInMainHand(new ItemStack(Material.COMPASS, 1));
+    						ItemStack item = new ItemStack(Material.COMPASS, 1);
+    						ItemMeta newMeta = item.getItemMeta();
+    						newMeta.addEnchant(Enchantment.VANISHING_CURSE, 0, true);  //so player doesn't drop compass on death
+    						item.setItemMeta(newMeta);
+    						player.getInventory().setItemInMainHand(item);
     					}
  	    			    
     					player.setCompassTarget(WhereToTrack); 
@@ -97,6 +107,7 @@ public class CompassTrack implements Listener{
 	    			    CompassMeta meta = (CompassMeta) player.getInventory().getItemInMainHand().getItemMeta();
 	    			    meta.setLodestone(loc);
 	    			    meta.setLodestoneTracked(true);
+	    			    meta.addEnchant(Enchantment.VANISHING_CURSE, 1, true);  //so player doesn't drop compass on death
 	    			    player.getInventory().getItemInMainHand().setItemMeta(meta);
 	    			    
 	    			    player.sendMessage(ChatColor.AQUA + "Tracking " + WhoToTrack.getName() );
@@ -121,6 +132,7 @@ public class CompassTrack implements Listener{
 	    			    CompassMeta meta = (CompassMeta) player.getInventory().getItemInMainHand().getItemMeta();
 	    			    meta.setLodestone(loc);
 	    			    meta.setLodestoneTracked(true);
+	    			    meta.addEnchant(Enchantment.VANISHING_CURSE, 1, true);
 	    			    player.getInventory().getItemInMainHand().setItemMeta(meta);
 	    			    
 	    			    player.sendMessage(ChatColor.AQUA + "Tracking Speedrunner's Portal in Nether! " );
